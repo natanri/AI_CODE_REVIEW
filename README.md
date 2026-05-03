@@ -1,6 +1,6 @@
 AI CODE REVIEW
 
-This CRUD web application was developed using Node.js, Express and MongoDB. It allows users to authenticate and securly manage their own code snippets.
+AI-powered code snippet manager with authentication, CRUD operations, and secure user-based access control using JWT.
 
 ⚠️ This project uses an external API (DeepSeek).
 You must generate your own API key and configure it in the .env file.
