@@ -1,3 +1,4 @@
+console.log("app starting...")
 require("dotenv").config();
 const express = require('express');
 const path = require('path');
@@ -30,5 +31,8 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //Basic route
-app.use('/', snippetRoutes);
+//app.use('/', snippetRoutes);
+app.get("/", (req, res)=> {
+    res.send("Server is alive")
+});
 
