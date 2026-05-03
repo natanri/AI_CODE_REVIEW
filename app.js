@@ -8,14 +8,15 @@ const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 3000;
 //Conexion
+app.listen(PORT, () => {
+    console.log(`Server running on port:${PORT}`);
+});
 mongoose.connect(process.env.MONGO_URL)
 .then(()=> {
     console.log('MongoDB connected');
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
+    
 })
-.catch(err => console.log(err));
+.catch(err => console.log('MongoDB connected', err));
 
 //EJS config
 app.set('view engine', 'ejs');
