@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URL)
 .then(()=> {
     console.log('MongoDB connected');
     app.listen(PORT, () => {
-        console.log(`Server running on http:localhost:${PORT}`);
+        console.log(`Server running on http://localhost:${PORT}`);
     });
 })
 .catch(err => console.log(err));
