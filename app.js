@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 3000;
 //Conexion
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URL)
 .then(()=> {
     console.log('MongoDB connected');
     app.listen(PORT, () => {
