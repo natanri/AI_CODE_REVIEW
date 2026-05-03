@@ -1,0 +1,46 @@
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    
+    
+</head>
+
+<div class="snippet-card max-w-3xl mx-auto p-6">
+
+        <h1 class="text-2xl font-bold mb-4">Edit Snippet</h1>
+        
+        <form action="/edit/<%= snippet._id %>" method="POST" class="space-y-4">
+            <!--TITLE-->
+            <input class="code-block w-full p-2 border rounded" type="text" name="title" value="<%= snippet.title %>">
+
+            <div class="code-container">
+                <!--CODE-->
+                <textarea name="code" rows="8"><%= snippet.code %></textarea>
+
+                <!--IMPROVED-->
+                <textarea name="improvedCode" rows="8"><%= snippet.improvedCode %></textarea>
+            </div>        
+
+            <!--ANALYSIS-->
+            <textarea name="analysis" rows="8"><%= snippet.analysis%></textarea>
+            <div class="flex justify-center mt-4">
+                <button class="bg-blue-500 text-white px-10 py-2 rounded" type="submit"> 💾 Save Changes</button>
+            </div>
+            
+
+            <nav class="mt-4">
+                <a href="/" class="text-blue-500 text-white">⬅ Back</a>
+            </nav>
+            <footer>
+                <% if (locals.user) {%>
+                    <a href="/logout">Logout</a>
+                <% } else { %>
+                    <a href="/login">Login</a>
+                <% } %>
+            </footer>
+        </form>
+
+    </div>
+
+    
+</div>

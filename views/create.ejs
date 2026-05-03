@@ -1,0 +1,46 @@
+<head>
+    <script src ="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    
+</head>
+
+<div class="snippet-card max-w-3xl mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-4">Create Code Review</h1>
+
+    <form action="/create" method="POST" class="space-y-4" id="snippetForm">
+        <input class="code-block w-full p-2 border rounded" type="text" name="title" placeholder="Title" required>
+
+        <div class="code-container">
+            <textarea class="w-full p-2 border rounded font-mono" name="code" rows="8" placeholder="Original Code"></textarea>
+        </div>       
+
+        
+        
+        <div class="flex justify-center mt-4">
+            <button id="submitBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-2 rounded-lg shadow flex items-center gap-2" type="submit">
+                <span id="btnText">Analyze Code</span>                                               
+            </button>
+            <div id="loader" class="hidden"></div> 
+              
+        </div>
+        
+        
+    </form>
+    <nav class="mt-4">
+        <a href="/" class="text-white"> Home</a>    
+    </nav>
+    
+</div>
+<script>
+    const form = document.getElementById("snippetForm");
+    const loader = document.getElementById("loader");
+    const btn = document.getElementById("submitBtn");
+    const btnText = document.getElementById("btnText");
+
+    form.addEventListener("submit", () => {
+        loader.classList.remove("hidden");
+        loader.classList.add("spin");
+        btn.disabled = true;
+        btn.innerText = "Analyzing..."
+    });
+</script>

@@ -1,0 +1,48 @@
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</head>
+<div class="snippet-card">
+    <h1><%= snippet.title %></h1>
+    
+    <div class="code-container">
+        
+        <!--ORIGINAL-->
+        <div class="code-block">
+            <h3>Original Code</h3>
+            <pre><code class="language-javascript"><%- snippet.code %></code></pre>
+        </div>        
+
+        <!--IMPROVED CODE-->
+        <div class="code-block">
+            <h3>Improved Code</h3>
+            <pre><code class="language-javascript"><%- snippet.improvedCode %></code></pre>
+        </div>    
+    </div>
+
+    <!--ANALYSIS-->
+    <div class="analysis">
+        <h3>Analysis</h3>
+        <pre class="analysis-text"><%= snippet.analysis %></pre>
+    </div>
+
+   
+    <nav>
+        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded"> ⬅ Back</a>
+        <a href="/edit/<%= snippet.id %>" class="bg-blue-500 text-white px-4 py-2 rounded">✏️ Edit</a>
+        <a href="/create" class="bg-blue-500 text-white px-4 py-2 rounded"> + Crear snippet</a>
+        <form action="/delete/<%= snippet.id %>" method="POST" 
+            onsubmit="return confirm('Are you sure?');" 
+            style="display:inline;">
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">🗑️ Delete</button>
+        </form>
+    </nav>
+    
+</div>
+

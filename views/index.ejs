@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>AI Code Review</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+        
+    </head>
+       
+    <body class="bg-gray-100 p-6">
+
+        <div class="container">   
+            <div class="navbar">
+                <h1 class="app-title">AI Code Review 🚀</h1>
+                <div class="nav-right">
+                    <% if (user) {%>
+                    <span>Welcome <%= user.email %></span>
+                        <a href="/logout" class="logout-btn">Logout</a>
+                    <% } else { %>
+                        <a href="/login" class="login=btn">Login</a>
+                    <% } %> 
+                </div>
+            </div>      
+            <a href="/create" class="bg-blue-500 text-white px-4 py-2 rounded">+ New Snippet</a>
+            <ul class="mt-4 space-y-2">
+                <% snippets.forEach(snippet => { %>
+                    <li class="bg-white p-4 rounded shadow">
+                        <a href="/snippet/<%= snippet.id %>" class="text-blue-600 font-semibold">
+                        <strong><%= snippet.title %></strong>
+                    </li>
+                <% }) %>
+            </ul>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+            <script>
+                hljs.highlightAll();
+            </script>           
+        </div>
+    
+    </body>
+</html>
